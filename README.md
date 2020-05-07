@@ -1,0 +1,2 @@
+# springboot-elasticsearch-info
+SpringBoot2.x版本整合ElasticSearch7.0.0版本基于高级客户端RestHighClient实现代码
