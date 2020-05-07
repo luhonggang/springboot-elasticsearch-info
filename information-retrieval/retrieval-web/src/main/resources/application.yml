@@ -1,0 +1,83 @@
+server:
+  port: 8088
+#spring:
+##  ## 该配置和Elasticsearch本地文件config下的elasticsearch.yml中的配置信息有关
+#  data:
+#    elasticsearch:
+##      client:
+##        reactive:
+##          username: infomation-application
+##          endpoints: 47.116.65.92:9300,47.116.65.92:9301,47.116.65.92:9302
+##          connection-timeout: 10000
+#    # Linux 测试机ES信息 toutou-application  本机 my-application-lhg
+##      cluster-name: my-application-lhg
+##      # 集群配置方式 cluster-nodes: 127.0.0.1:9301,127.0.0.1:9302,127.0.0.1:9303
+##      cluster-nodes: 127.0.0.1:9300
+#      cluster-name: infomation-application
+#      cluster-nodes: 47.116.65.92:9300,47.116.65.92:9301,47.116.65.92:9302
+##      repositories:
+##        enabled: true
+##      client:
+##        reactive:
+##          userCacheName:
+##  es:
+##    hosts: 47.116.65.92:9300,47.116.65.92:9301,47.116.65.92:9302
+##  pool:
+
+########################################### 本地集群连接信息 ####################################
+#spring:
+#  data:
+#    elasticsearch:
+#      cluster-name: toutou-aplication
+#      cluster-nodes:  127.0.0.1:9301,127.0.0.1:9302,127.0.0.1:9303
+#spring:
+#  es:
+#    hosts: 127.0.0.1:9301,127.0.0.1:9302,127.0.0.1:9303
+#    pool: 8
+
+#server.port=8088
+# 47.116.65.92:9201,47.116.65.92:9202,47.116.65.92:9203
+#test.es.host=127.0.0.1:9201,127.0.0.1:9202,127.0.0.1:9203
+##test.es.connectAddress=127.0.0.1:9201,127.0.0.1:9202,127.0.0.1:9203
+#test.es.scheme=http
+#test.es.token=esTtToken
+#test.es.charSet=UTF8
+#test.es.socketTimeOut=15000
+#test.es.connectTimeOut=5000
+springboot:
+  es:
+    host: 127.0.0.1:9201,127.0.0.1:9202,127.0.0.1:9203
+    scheme: http
+    token: esTtToken
+    charSet: UTF8
+    socketTimeOut: 15000
+    connectTimeOut: 5000
+    connectionRequestTimeout: 5000
+    maxConnTotal: 30
+
+###consumer
+rocketMq:
+  consumer:
+    namesAddr: 192.168.3.15:9876
+    groupName: search_es
+    #该消费者订阅的主题和tags("*"号表示订阅该主题下所有的tags),格式：topic~tag1||tag2||tag3;topic2~*;
+    topics: search_es
+    consumeThreadMin: 10
+    consumeThreadMax: 20
+    #设置一次消费消息的条数，默认为1条
+    consumeMessageBatchMaxSize: 1
+    #该应用是否启用消费者
+    isOnOff: on
+
+logging:
+  pattern:
+    rolling-file-name: information.%d{yyyy-MM-dd}.log
+  file:
+    path: ./logs
+    name: information.log
+  level:
+    root: info
+    com.tt.info.service: debug
+spring:
+  profiles:
+    active: dev
