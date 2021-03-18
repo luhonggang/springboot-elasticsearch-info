@@ -28,7 +28,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <rocketmq.verson>4.7.0</rocketmq.verson>
-        <elasticsearch.verson>7.0.0</elasticsearch.verson>
+        <elasticsearch.verson>7.11.2</elasticsearch.verson>
         <fast.version>1.2.68</fast.version>
         <junit.version>4.11</junit.version>
     </properties>
